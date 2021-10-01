@@ -1,0 +1,9 @@
+<div class="input-group mb-3">
+    <input [(ngModel)]="search.search" (ngModelChange)="searchChange($event)" type="text" class="form-control" placeholder="search for a pokemon..." aria-label="search for a pokemon">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" (click)="onClick()" type="button" id="button-addon2">catch 'em!</button>
+    </div>
+  </div>
+<div class="card-deck row">
+    <app-poke-card class="col-md-3 mt-3" *ngFor="let pokemon of searchResults" [pokemon]='pokemon'></app-poke-card>
+</div>
