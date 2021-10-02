@@ -25,8 +25,6 @@ export class SearchResultsComponent implements OnInit {
     this.indexOfFirstResult = this.activePage * this.resultsPerPage;
     this.indexOfLastResult = this.indexOfFirstResult + this.resultsPerPage;
     this.activeResults = this.searchResults.slice(this.indexOfFirstResult, this.indexOfLastResult);
-    console.log(this.pageNumbers)
-    console.log(this.activeResults)
   }
 
   renderPageNumbers() {

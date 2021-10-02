@@ -3,18 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PokeCardComponent } from './poke-card/poke-card.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
-
+import { PokeCardComponent } from './poke-card/poke-card.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { PaginatorComponent } from './paginator/paginator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokeCardComponent,
-    SearchResultsComponent,
-    PaginatorComponent
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,
