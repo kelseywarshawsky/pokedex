@@ -1,6 +1,21 @@
-<div class="card">
-    <img class="card-img-top" src='{{pokemon.image}}' alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{pokemon.name}}</h5>
-    </div>
+<div (click)="open(content)" class="card">
+  <img class="card-img-top" src='{{pokemon.image}}' alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{pokemon.name}}</h5>
   </div>
+</div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{pokemon.name}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>base experience: {{pokemon.baseexp}}</p>
+    <p>height: {{pokemon.height}}</p>
+    <p>weight: {{pokemon.weight}}</p>
+    <p>abilities: {{pokemon.abilities}}</p>
+  </div>
+</ng-template>
+<pre>{{ closeResult }}</pre>

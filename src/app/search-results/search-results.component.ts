@@ -1,4 +1,3 @@
-import { state } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../pokemon';
 import { Search } from '../search';
@@ -19,7 +18,7 @@ export class SearchResultsComponent implements OnInit {
   indexOfFirstResult: number = 0;
   indexOfLastResult: number = 12;
   resultsPerPage: number = 16;
-  activePage: number = 1;
+  activePage: number = 0;
 
   loadSelectedPage() {
     this.indexOfFirstResult = this.activePage * this.resultsPerPage;
@@ -43,7 +42,13 @@ export class SearchResultsComponent implements OnInit {
 
   onSearch() {
     this.searchResults = [];
-    this.pokeSearch(this.search.search)
+    this.pageNumbers = [];
+    this.pokeSearch(this.search.search);
+    setTimeout(() => {
+      console.log(this.searchResults)
+      this.loadSelectedPage();
+      this.renderPageNumbers();
+    }, 500)
   }
 
   onPageSelect(page: number) {
@@ -76,7 +81,7 @@ export class SearchResultsComponent implements OnInit {
           setTimeout(() => {
             this.loadSelectedPage();
             this.renderPageNumbers();
-          }, 450)
+          }, 600)
         })
       })
   }
@@ -92,6 +97,10 @@ export class SearchResultsComponent implements OnInit {
             id: pokemon.id,
             name: pokemon.name,
             image: pokemon.sprites?.other['official-artwork']?.front_default ? pokemon.sprites?.other['official-artwork']?.front_default : './assets/images/surprised_pikachu.jpeg',
+            height: pokemon.height,
+            weight: pokemon.weight,
+            abilities: pokemon.abilities.length,
+            baseexp: pokemon.base_experience
           }
           this.searchResults.push(thisPoke);
         });

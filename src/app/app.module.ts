@@ -11,7 +11,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     AppComponent,
     PokeCardComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
   ],
   imports: [
     BrowserModule,
