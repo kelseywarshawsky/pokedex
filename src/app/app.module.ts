@@ -7,12 +7,14 @@ import { PokeCardComponent } from './poke-card/poke-card.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { PaginatorComponent } from './paginator/paginator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokeCardComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    PaginatorComponent
   ],
   imports: [
     BrowserModule,
