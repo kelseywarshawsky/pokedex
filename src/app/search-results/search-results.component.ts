@@ -102,6 +102,7 @@ export class SearchResultsComponent implements OnInit {
             abilities: pokemon.abilities.length,
             baseexp: pokemon.base_experience
           }
+          console.log(this.searchResults)
           this.searchResults.push(thisPoke);
         });
     }
