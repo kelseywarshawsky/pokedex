@@ -1,0 +1,16 @@
+<div
+  [class]="
+    index === activeIndex
+      ? 'active carousel-item flex justify-content-center'
+      : 'carousel-item inactive'
+  "
+>
+  <img class="w-50 pl-6" src="{{ pokemon.image }}" />
+  <div class="text-white">
+    <p>name: {{ pokemon.name }}</p>
+    <p>base experience: {{ pokemon.baseexp }}</p>
+    <p>height: {{ pokemon.height }}</p>
+    <p>weight: {{ pokemon.weight }}</p>
+    <p>abilities: {{ pokemon.abilities }}</p>
+  </div>
+</div>

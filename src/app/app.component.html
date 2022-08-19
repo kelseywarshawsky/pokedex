@@ -1,17 +1,17 @@
 <html>
+  <head>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-</head>
+  <body>
+    <div class="container d-flex p-3 mx-auto flex-column">
+      <h1 class="display-1 text-light">{{ title }}.</h1>
+      <p class="text-light">made on a very lit friday night</p>
+    </div>
 
-<body>
-  <div class="container d-flex p-3 mx-auto flex-column">
-    <h1 class="display-1 text-light">{{title}}.</h1>
-    <p class="text-light">made on a very lit friday night</p>
-    <app-search-results></app-search-results>
-  </div>
-
-  <router-outlet></router-outlet>
-</body>
-
+    <router-outlet></router-outlet>
+  </body>
 </html>
