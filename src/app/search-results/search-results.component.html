@@ -1,49 +1,50 @@
-<div class="input-group mb-3">
-  <input
-    [(ngModel)]="search.search"
-    (ngModelChange)="searchChange($event)"
-    type="text"
-    class="form-control"
-    placeholder="search for a pokémon..."
-    aria-label="search for a pokemon"
-  />
-  <div class="input-group-append">
-    <button
-      class="btn btn-outline-secondary"
-      (click)="onSearch()"
-      type="button"
-      id="button-addon2"
-    >
-      catch 'em!
-    </button>
+<div class="container d-flex p-3 mx-auto flex-column">
+  <div class="input-group mb-3">
+    <input
+      [(ngModel)]="search.search"
+      (ngModelChange)="searchChange($event)"
+      type="text"
+      class="form-control"
+      placeholder="search for a pokémon..."
+      aria-label="search for a pokemon"
+    />
+    <div class="input-group-append">
+      <button
+        class="btn btn-outline-secondary"
+        (click)="onSearch()"
+        type="button"
+        id="button-addon2"
+      >
+        catch 'em!
+      </button>
+    </div>
   </div>
+  <div class="card-deck row">
+    <app-poke-card
+      class="col-md-3 mt-3"
+      *ngFor="let pokemon of activeResults"
+      [pokemon]="pokemon"
+    ></app-poke-card>
+  </div>
+  <nav class="mt-4 align-center" aria-label="Page navigation">
+    <ul class="pagination-lg pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link" (click)="onPrev()" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li *ngFor="let page of pageNumbers" class="page-item">
+        <a (click)="onPageSelect(page)" class="page-link" href="#">{{
+          page
+        }}</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" (click)="onNext()" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
-<div>
-  <app-carousel></app-carousel>
-</div>
-<div class="card-deck row">
-  <app-poke-card
-    class="col-md-3 mt-3"
-    *ngFor="let pokemon of activeResults"
-    [pokemon]="pokemon"
-  ></app-poke-card>
-</div>
-<nav class="mt-4 align-center" aria-label="Page navigation">
-  <ul class="pagination-lg pagination justify-content-center">
-    <li class="page-item">
-      <a class="page-link" (click)="onPrev()" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-    <li *ngFor="let page of pageNumbers" class="page-item">
-      <a (click)="onPageSelect(page)" class="page-link" href="#">{{ page }}</a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" (click)="onNext()" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-  </ul>
-</nav>
